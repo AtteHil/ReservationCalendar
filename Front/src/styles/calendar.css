@@ -1,0 +1,33 @@
+/* Change background & text color */
+.react-calendar {
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+  }
+  
+  /* Highlight selected range */
+  .react-calendar__tile--active {
+    background: #007bff !important;
+    color: white !important;
+    border-radius: 5px;
+  }
+  
+  /* Improve hover effect */
+  .react-calendar__tile:hover {
+    background: #444;
+    color: white;
+  }
+  
+  /* Style navigation buttons */
+  .react-calendar__navigation button {
+    color: white;
+    background: none;
+  }
+  
+  .react-calendar__navigation button:hover {
+    background: #555;
+    border-radius: 5px;
+  }
+  
