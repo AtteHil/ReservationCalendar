@@ -9,25 +9,35 @@
   
   /* Highlight selected range */
   .react-calendar__tile--active {
-    background: #007bff !important;
+    background: #7F00FF !important;
     color: white !important;
     border-radius: 5px;
   }
-  
+  .react-calendar__navigation {
+    display: flex;
+  }
   /* Improve hover effect */
   .react-calendar__tile:hover {
-    background: #444;
-    color: white;
+    background-color: #7F00FF !important;
+    color: rgb(255, 255, 255);
+  }
+  .react-calendar__tile--range {
+    box-shadow: 0 0 1px 1px black;
   }
   
-  /* Style navigation buttons */
-  .react-calendar__navigation button {
-    color: white;
-    background: none;
+  .react-calendar__tile--now {
+    background: #6600CC;
+    border-radius: 5px;
   }
+  .react-calendar__tile--now:hover {
+    background: rgb(200, 41, 221) !important;
+  }
+
+  
+  
   
   .react-calendar__navigation button:hover {
-    background: #555;
+    background: #6600CC !important;
     border-radius: 5px;
   }
   

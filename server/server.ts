@@ -6,9 +6,9 @@ const PORT = 3000;
 app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
-    res.send({msg:'Hello, TypeScript!'}).json();
+    res.json({msg:'Hello, TypeScript!'});
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+    console.log(`Server is running at port ${PORT}`);
 });
