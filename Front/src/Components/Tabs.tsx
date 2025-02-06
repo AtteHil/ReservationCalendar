@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { SimpleGrid } from '@chakra-ui/react';
 import { Tabs } from '@chakra-ui/tabs';
 import { LuUser, LuFolder, LuSquareCheck } from 'react-icons/lu';

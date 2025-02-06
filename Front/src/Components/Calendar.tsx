@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "../styles/Calendar.css";
+import "../styles/calendar.css";
 import { useTranslation } from 'react-i18next'
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 const RangeCalendar: React.FC = () => {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
     
   const [date, setDate] = useState<Value>([new Date(), new Date()]);
 
