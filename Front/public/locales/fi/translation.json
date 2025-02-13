@@ -2,7 +2,9 @@
     "Chosen days": "Valitut päivät",
     "Frontpage": "Etusivu",
     "Calendar": "kalenteri",
-    "Profile": "Profiili",
     "Cat Hotel reservation calendar": "Kissahotellin varauskalenteri",
-    "Select a Date Range": "Valitse päivämäärät"
+    "Select a Date Range": "Valitse päivämäärät",
+    "Profile": "Profiili",
+    "Reservations": "Varaukset",
+    "Log out": "Kirjaudu ulos"
 }

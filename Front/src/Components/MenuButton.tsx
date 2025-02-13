@@ -3,17 +3,26 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { FaCat } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 import '../styles/menu.css';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (location: string) => {
+
     setAnchorEl(null);
+    navigate(location)
   };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  }
 
   return (
     <div>
@@ -30,14 +39,14 @@ export default function BasicMenu() {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClose={handleMenuClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={() => handleClose("/Reservations")}>{t('Reservations')}</MenuItem>
+        <MenuItem onClick={() => handleClose("/Profile")}>{t('Profile')}</MenuItem>
+        <MenuItem>{t('Log out')}</MenuItem>
       </Menu>
     </div>
   );
