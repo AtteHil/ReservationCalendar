@@ -8,4 +8,23 @@ Backend is hosted on Render
 
 as I update the GitHub repository new deployments are automatically ran to both hosting services.
 
-Sites are work in progress.
+Site is work in progress.
+
+future updates (to keep track what I am going to implement on the site)
+
+- login + jwt authentication 
+- mongo atlas as database
+- improvements to visualize site (material ui loading components and alerts for user)
+- making reservations 
+- view when the "hotel" is booked (logged in users)
+- Admin credentials to delete bookings or set "hotel" closed
+- demo video of the site and/or visitor credentials which can not be used to make real reservations but can be used to demo site
+- Front Page with images of "happy customers"
+
+what Will not be done
+- registration Page (site is only for me and my family for personal usage) 
+
+
+Atte Hiltunen
+
+
