@@ -6,13 +6,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ErrorPage } from './Components/Error.tsx'
 import { Header } from './Components/Header.tsx'
 import RangeCalendar from './Components/Calendar.tsx'
-
+import CredentialsSignInPage from './Components/Login.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<><Header /><App /></>} />
         <Route path="/Reservations" element={<><Header /><RangeCalendar /></>}></Route>
+        <Route path="/LogIn" element={<><Header /><CredentialsSignInPage /></>}></Route>
         <Route path="*" element={<><Header /><ErrorPage /></>}></Route>
       </Routes>
     </BrowserRouter>

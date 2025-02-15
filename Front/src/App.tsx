@@ -1,10 +1,7 @@
 
-import CalendarModule from './Components/Calendar'
+
 import './App.css'
 import './i18n';
-import { Header } from './Components/Header';
-import { ErrorPage } from './Components/Error';
-import { Route, Routes } from 'react-router-dom';
 
 function App() {
 

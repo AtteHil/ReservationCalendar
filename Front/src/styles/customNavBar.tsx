@@ -5,5 +5,5 @@ const violetBase = '#7F00FF';
 
 export const CustomNavBar = styled(AppBar)({
   backgroundColor: violetBase,
-  
+
 }) as typeof AppBar;

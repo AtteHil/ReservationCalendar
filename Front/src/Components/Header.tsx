@@ -20,8 +20,8 @@ export const Header = () => {
 
   return (
 
-    <CustomNavBar position="static" className='header'>
-      <Toolbar>
+    <CustomNavBar position="static" className='header' sx={{ left: 0, right: 0, width: "100%" }}>
+      <Toolbar >
         <Box sx={{ display: { xs: 'flex', md: 'flex' }, flexGrow: 1 }}>
           <BasicMenu />
         </Box>
