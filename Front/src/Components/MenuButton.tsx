@@ -44,6 +44,7 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
+        <MenuItem onClick={() => handleClose("/")}>{t('Front page')}</MenuItem>
         <MenuItem onClick={() => handleClose("/Reservations")}>{t('Reservations')}</MenuItem>
         <MenuItem onClick={() => handleClose("/Profile")}>{t('Profile')}</MenuItem>
         <MenuItem>{t('Log out')}</MenuItem>

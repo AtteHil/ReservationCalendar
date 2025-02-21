@@ -1,0 +1,4 @@
+#reservationPageDiv {
+    display: flex;
+    flex-direction: row;
+}

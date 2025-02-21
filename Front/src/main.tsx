@@ -3,16 +3,19 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { ErrorPage } from './Components/Error.tsx'
+import ErrorPage from './Components/Error.tsx'
 import { Header } from './Components/Header.tsx'
-import RangeCalendar from './Components/Calendar.tsx'
+import Profile from "./Components/Profile.tsx"
+import ReservationsPage from './Components/Reservations.tsx'
 import CredentialsSignInPage from './Components/Login.tsx'
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<><Header /><App /></>} />
-        <Route path="/Reservations" element={<><Header /><RangeCalendar /></>}></Route>
+        <Route path="/Reservations" element={<><Header />< ReservationsPage /></>}></Route>
+        <Route path="/Profile" element={<><Header /><Profile /></>}></Route>
         <Route path="/LogIn" element={<><Header /><CredentialsSignInPage /></>}></Route>
         <Route path="*" element={<><Header /><ErrorPage /></>}></Route>
       </Routes>
