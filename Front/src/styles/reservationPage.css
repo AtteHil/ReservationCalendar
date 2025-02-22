@@ -1,4 +1,41 @@
 #reservationPageDiv {
     display: flex;
     flex-direction: row;
+    overflow-y: auto;
+}
+
+.container {
+
+    overflow: auto;
+}
+
+#root {
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 800px) {
+    #reservationPageDiv {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .container {
+
+        overflow: auto;
+    }
+
+
+}
+
+@media screen and (max-height: 800px) {
+    #reservationPageDiv {
+
+        overflow-y: auto;
+    }
+
+    .container {
+
+        overflow: auto;
+    }
+
 }

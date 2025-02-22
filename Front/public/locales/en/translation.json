@@ -11,5 +11,13 @@
     "Email": "Email",
     "Password": "Password",
     "Sign in to make reservations": "Sign in to make reservations",
-    "Front page": "Front page"
+    "Front page": "Front page",
+    "Selected Dates": "Selected Dates",
+    "No dates selected yet": "No dates selected yet",
+    "If you have many visitors, please separate them with ,": "If you have many visitors, please separate them with ,",
+    "Visitors": "Visitors",
+    "Food": "Food",
+    "Bring own": "Bring own",
+    "At an extra charge at Hotel": "At an extra charge at Hotel",
+    "Make reservation": "Make reservation"
 }

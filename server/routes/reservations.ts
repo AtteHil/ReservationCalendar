@@ -2,8 +2,8 @@ import express, { Router, Request, Response } from 'express';
 import { IReservation, Reservation } from '../models/reservation';
 const reservationRouter: Router = express.Router();
 
-reservationRouter.get('/', (req: Request, res: Response) => {
-    res.send('Hello from MongoDB');
+reservationRouter.get('/', (req: Request, res: Response) => { // test route
+    res.json('Hello from reservations');
 });
 reservationRouter.post('/makeReservation', async (req: Request, res: Response) => {
     console.log(req.body);

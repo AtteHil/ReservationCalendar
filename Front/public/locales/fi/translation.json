@@ -11,5 +11,13 @@
     "Email": "Sähköposti",
     "Password": "Salasana",
     "Sign in to make reservations": "Kirjaudu sisään tehdäksesi varauksia",
-    "Front page": "Etusivu"
+    "Front page": "Etusivu",
+    "Selected Dates": "Valitut päivämäärät",
+    "No dates selected yet": "Ei valittua ajankohtaa",
+    "If you have many visitors, please separate them with ,": "Jos sinulla on monta vierasta, erottele heidät pilkulla ,",
+    "Visitors": "Vieraat",
+    "Food": "Ruoka valinta",
+    "Bring own": "Tuon omat",
+    "At an extra charge at Hotel": "Hotellin ruoka extra maksusta",
+    "Make reservation": "Tee varaus"
 }

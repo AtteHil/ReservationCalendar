@@ -11,7 +11,7 @@ export const Header = () => {
     i18n.changeLanguage(lng)
   }
   const fetchHello = async () => {
-    const response = await fetch('http://localhost:3000');
+    const response = await fetch('https://reservationcalendar.onrender.com/reservation/');
     if (response.ok) {
       const data = await response.json();
       console.log(data);
