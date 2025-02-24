@@ -1,16 +1,16 @@
 import mongoose, { Document, Schema } from "mongoose";
 
 interface IReservation extends Document {
-    user: string;
-    days: Date[];
+    days: [Date, Date];
     cats: string[];
+    food: string;
 
 }
 
 const reservationSchema = new Schema({
-    user: { type: String, required: true },
-    days: { type: [Date], required: true },
-    for: { type: [String], required: true },
+    days: { type: [Date,Date], required: true },
+    cats: {type: [String], required: true },
+    food: { type: String, required: true },
 
 })
 

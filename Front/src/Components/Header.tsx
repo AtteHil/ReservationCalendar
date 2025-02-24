@@ -10,13 +10,6 @@ export const Header = () => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng)
   }
-  const fetchHello = async () => {
-    const response = await fetch('https://reservationcalendar.onrender.com/reservation/');
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-    }
-  }
 
   return (
 
@@ -28,7 +21,7 @@ export const Header = () => {
         <Box sx={{ display: { xs: 'none', md: 'flex' }, flexGrow: 10, justifyContent: 'center' }}>
           {t('Cat Hotel reservation calendar')}
         </Box>
-        <CustomButton onClick={() => { fetchHello() }}>Click Me</CustomButton>
+  
         <CustomButton onClick={() => { changeLanguage('fi') }}>Fi</CustomButton>
         <CustomButton onClick={() => { changeLanguage('en') }}>EN</CustomButton>
       </Toolbar>

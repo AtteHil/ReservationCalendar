@@ -26,12 +26,6 @@ const RangeCalendar = ({ saveDays }: CalendarProps) => { // react calendar compo
     <div id="calendarDiv">
       <h2>{t('Select a Date Range')}</h2>
       <Calendar onChange={handleDateChange} value={date} selectRange={true} />
-      {/* {Array.isArray(date) && date.length === 2 && (
-        <p>
-          {t("Chosen days")} : {date[0] ? format(date[0], "dd-MM-yyyy") : ""} - {date[1] ? format(date[1], "dd-MM-yyyy") : ""}
-        </p>
-      )} */}
-
     </div>
   );
 };

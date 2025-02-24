@@ -6,9 +6,9 @@ import { Paper } from "@mui/material";
 import "../styles/reservationPage.css";
 
 
-const ReservationsPage = () => {
+const ReservationsPage: React.FC = () => {
     const { selectedDays, saveDays } = useDates();
-
+    
     return (
 
         <div className="overflow-auto">

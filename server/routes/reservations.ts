@@ -5,23 +5,22 @@ const reservationRouter: Router = express.Router();
 reservationRouter.get('/', (req: Request, res: Response) => { // test route
     res.json('Hello from reservations');
 });
-reservationRouter.post('/makeReservation', async (req: Request, res: Response) => {
-    console.log(req.body);
-    try {
-        const { user, days, cats }: IReservation = req.body
-        const reservation: IReservation = new Reservation({
-            user,
-            days,
-            cats
-        })
-        await reservation.save()
-        res.status(200).send('Reservation made')
-    } catch (error: any) {
-        console.error(`Error: ${error}`)
-        res.status(500).json({ error: 'Internal Server Error' })
-    }
-
-})
+// reservationRouter.post('/makeReservation', async (req: Request, res: Response) => {
+//     console.log(req.body);
+//     try {
+//         const { days, cats, food }: IReservation = req.body
+//         const reservation: IReservation = new Reservation({
+//             days,
+//             cats,
+//             food
+//         })
+//         await reservation.save()
+//         res.status(200).json('Reservation made')
+//     } catch (error: any) {
+//         console.error(`Error: ${error}`)
+//         res.status(500).json({ error: 'Internal Server Error' })
+//     }
+// })
 reservationRouter.get('/getReservations', async (req: Request, res: Response) => {
     try {
         const reservations: IReservation[] = await Reservation.find();
