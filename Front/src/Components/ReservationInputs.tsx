@@ -52,7 +52,7 @@ export const ReservationInputs = ({ selectedDays }: ReservationInputsProps) => {
             setAlertMessage(null);
           }, 3000);
       };
-      useEffect(() => {
+      useEffect(() => { // closes alert automatically after 3 seconds
         setTimeout(() => {
             setAlertMessage(null);
           }, 3000);},[alertMessage]);

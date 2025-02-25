@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-const Profile = () => {
+const Profile = () => { // not implemented yet routes to log in because no token is found
     const [token, setToken] = useState<string>("");
     const navigate = useNavigate();
     useEffect(() => {

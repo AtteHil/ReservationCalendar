@@ -20,7 +20,7 @@ export default function BasicMenu() {
     setAnchorEl(null);
     navigate(location)
   };
-  const handleMenuClose = () => {
+  const handleMenuClose = () => { // closing if clicked outside of menu
     setAnchorEl(null);
   }
 
@@ -47,7 +47,7 @@ export default function BasicMenu() {
         <MenuItem onClick={() => handleClose("/")}>{t('Front page')}</MenuItem>
         <MenuItem onClick={() => handleClose("/Reservations")}>{t('Reservations')}</MenuItem>
         <MenuItem onClick={() => handleClose("/Profile")}>{t('Profile')}</MenuItem>
-        <MenuItem>{t('Log out')}</MenuItem>
+        <MenuItem>{t('Log out')}</MenuItem> {/* to be implemented */}
       </Menu>
     </div>
   );

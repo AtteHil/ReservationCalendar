@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 
 
-export default function CredentialsSignInPage() {
+export default function CredentialsSignInPage() { // fetch to login to be added once jwt is implemented on backend
     const { t } = useTranslation()
     return (
 
