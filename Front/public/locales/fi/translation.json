@@ -19,5 +19,13 @@
     "Food": "Ruoka valinta",
     "Bring own": "Tuon omat",
     "At an extra charge at Hotel": "Hotellin ruoka extra maksusta",
-    "Make reservation": "Tee varaus"
+    "Make reservation": "Tee varaus",
+    "Starts": "Alkaa",
+    "Ends": "Loppuu",
+    "Reservation for": "Vieras",
+    "Food choice": "Ruoka valinta",
+    "No reservations":"Ei varauksia",
+    "Failed to make reservation": "Varaus epäonnistui",
+    "Reservation successful!": "Varaus tehty!",
+    "Happy Customers": "Tyytyväiset asiakkaat"
 }

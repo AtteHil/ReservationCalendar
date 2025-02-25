@@ -5,6 +5,8 @@ import { fetchReservation } from '../api/fetchReservation';
 import { CustomButton } from '../styles/customButton';
 import UpdateIcon from '@mui/icons-material/Update';
 import { useTranslation } from 'react-i18next';
+import { format} from 'date-fns';
+import { Atom } from 'react-loading-indicators';
 
 interface Reservation {
     days: string[];
@@ -20,6 +22,7 @@ export const ReservationsDiv = () => {
     
     useEffect(() => { // found from https://github.com/facebook/react/issues/25962 
         // initial load will abort because React loads -> cleanups -> loads again and there for two aborts happen if initialized true
+        // does not do it in production
         const controller = new AbortController();
         const signal = controller.signal;
     
@@ -41,12 +44,8 @@ export const ReservationsDiv = () => {
         if (loading) {
             fetchReservations();
         }
-    
-        // Cleanup: only abort if fetch is still ongoing
         return () => {
-            if (loading) {
-                controller.abort();
-            }
+            controller.abort();
         };
     }, [loading]);
     
@@ -62,28 +61,30 @@ export const ReservationsDiv = () => {
             <h2 id='reservationTitle'>{t("Reservations")}</h2>
             <CustomButton  onClick={() =>setLoading(true)} id='refreshButton'><UpdateIcon></UpdateIcon></CustomButton>
         <br />
-        {loading && <p>{t("Loading reservations")}...</p>}
-            <ul className="reservations-list">
-                {reservations && reservations.length === 0 && <p>No reservations</p>}
-
-                <AnimatePresence>
-                    {reservations?.map((reservation) => (
-                        <motion.li
-                            key={reservation.days[0]}
-                            variants={itemVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            className="reservation-item"
-                        >
-                            <p>{t("Reservation for")}: {reservation.cats}</p>
-                            <p>{t("Starts")}: {reservation.days[0]}</p>
-                            <p>{t("Ends")}: {reservation.days[1]}</p>
-                            <p>{t("Food choice")}: {reservation.food}</p>
-                        </motion.li>
-                    ))}
-                </AnimatePresence>
-            </ul>
+        {loading ? ( // loading spinner or reservations
+                <Atom color="#b31dcc" size="medium" text="" textColor="" />
+            ) : (
+                <ul className="reservations-list">
+                    {reservations && reservations.length === 0 && <p>{t("No reservations")}</p>}
+                    <AnimatePresence>
+                        {reservations?.map((reservation) => (
+                            <motion.li
+                                key={reservation.days[0]}
+                                variants={itemVariants}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                className="reservation-item"
+                            >
+                                <p>{t("Reservation for")}: {reservation.cats}</p>
+                                <p>{t("Starts")}: {format(new Date(reservation.days[0]), "dd-MM-yyyy")}</p>
+                                <p>{t("Ends")}: {format(new Date(reservation.days[1]), "dd-MM-yyyy")}</p>
+                                <p>{t("Food choice")}: {reservation.food}</p>
+                            </motion.li>
+                        ))}
+                    </AnimatePresence>
+                </ul>
+            )}
         </div>
     );
 };

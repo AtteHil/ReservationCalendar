@@ -8,6 +8,7 @@ import { Header } from './Components/Header.tsx'
 import Profile from "./Components/Profile.tsx"
 import ReservationsPage from './Components/Reservations.tsx'
 import CredentialsSignInPage from './Components/Login.tsx'
+import './i18n'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

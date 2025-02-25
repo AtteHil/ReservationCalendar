@@ -7,13 +7,13 @@ import "../styles/reservationPage.css";
 
 
 const ReservationsPage: React.FC = () => {
-    const { selectedDays, saveDays } = useDates();
+    const { selectedDays, saveDays } = useDates(); // customhook to hold selected days
     
     return (
 
         <div className="overflow-auto">
             <div className="row g-3">
-                {/* First Row: ReservationsDiv & RangeCalendar */}
+                {/* First Row: ReservationsDiv and RangeCalendar */}
                 <div className="col-12 col-md-6">
                     <Paper id="upperDiv" elevation={6} className="p-3 d-flex gap-2 flex-wrap">
                         <ReservationsDiv />

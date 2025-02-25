@@ -19,5 +19,13 @@
     "Food": "Food",
     "Bring own": "Bring own",
     "At an extra charge at Hotel": "At an extra charge at Hotel",
-    "Make reservation": "Make reservation"
+    "Make reservation": "Make reservation",
+    "Starts": "Starts",
+    "Ends": "Ends",
+    "Reservation for": "Reservation for",
+    "Food choice": "Food choice",
+    "No reservations":"No reservations",
+    "Failed to make reservation": "Failed to make reservation",
+    "Reservation successful!": "Reservation successful!",
+    "Happy Customers": "Happy Customers"
 }

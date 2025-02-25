@@ -5,7 +5,7 @@ import { CustomButton } from '../styles/customButton';
 import { useTranslation } from 'react-i18next';
 import { makeReservation } from '../api/reservation';
 import '../styles/reservationInputs.css';
-import { useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 
 
 interface ReservationInputsProps {
@@ -44,21 +44,18 @@ export const ReservationInputs = ({ selectedDays }: ReservationInputsProps) => {
             setAlertMessage(t("Reservation successful!"));
             setAlertSeverity("success");
           } catch (error) {
-            console.error('Failed to make reservation:', error);
-            setAlertMessage(t("Failed to make reservation."));
+            setAlertMessage(t("Failed to make reservation"));
             setAlertSeverity("error");
           }
-        }
+          
+        }setTimeout(() => {
+            setAlertMessage(null);
+          }, 3000);
       };
-    useEffect(() => {
-        if (alertMessage) {
-            const timer = setTimeout(() => {
-                setAlertMessage(null);
-            }, 4000);
-            return () => clearTimeout(timer);
-        }
-    }, [alertMessage]);
-
+      useEffect(() => {
+        setTimeout(() => {
+            setAlertMessage(null);
+          }, 3000);},[alertMessage]);
 
 
     return (
@@ -82,12 +79,12 @@ export const ReservationInputs = ({ selectedDays }: ReservationInputsProps) => {
             ) : (
                 <p>{t("No dates selected yet")}</p>
             )}
-
-            <Tooltip title={t("If you have many visitors, please separate them with ,")}>
+                {/* shown on site with mouse click or with phone when holding input */}
+            <Tooltip title={t("If you have many visitors, please separate them with ,")}> 
                 <CustomTextField id="Cats" label={t("Visitors")} variant="outlined"  onChange={(e) => setSelectedCats(e.target.value)}/>
             </Tooltip>
 
-            <FormControl>
+            <FormControl>  {/* Radio buttons for food choice */}
                 <FormLabel id="foodChoice">{t("Food")}</FormLabel>
                 <RadioGroup
                     defaultValue={1}
