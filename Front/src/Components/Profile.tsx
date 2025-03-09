@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => { // not implemented yet routes to log in because no token is found
+const Profile = () => { // to be implemented
     const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:3000/reservation/', {
+            const response = await fetch('https://reservationcalendar.onrender.com/reservation/', { /// fix address
                 method: 'GET',
                 credentials: 'include',
             });

@@ -13,6 +13,7 @@ interface Payload extends JwtPayload {
 
 const authenticate = (req: CustomRequest, res: Response, next: NextFunction) => { // authenticate Authorization token
     try {
+        console.log(req.cookies);
         const token: string | undefined = req.cookies.token; // changed from req.headers.authorization
 
         if (!token) {
