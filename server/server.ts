@@ -10,7 +10,7 @@ dotenv.config();
 const app: Express = express();
 const port: number = parseInt(process.env.PORT as string) || 3000;
 const mongoUri: string = process.env.MONGO_URI as string;
-const allowedOrigins = ['http://localhost:5173', 'https://reservation-calendar-psi.vercel.app/'];
+const allowedOrigins = ['https://reservation-calendar-psi.vercel.app','http://localhost:5173' ];
 mongoose.connect(mongoUri);
 mongoose.Promise = Promise;
 const db: Connection = mongoose.connection;
