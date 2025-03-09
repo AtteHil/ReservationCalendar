@@ -6,7 +6,7 @@ const Profile = () => { // to be implemented
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('https://reservationcalendar.onrender.com/reservation/', { /// fix address
-                method: 'GET',
+                method: 'POST',
                 credentials: 'include',
             });
             if (response.status === 401) {

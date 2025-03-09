@@ -3,7 +3,7 @@ import { IReservation, Reservation } from '../models/reservation';
 import { authenticate} from '../middleware/ValidateToken';
 const reservationRouter: Router = express.Router();
 
-reservationRouter.get('/',authenticate, (req: Request, res: Response) => { // test route
+reservationRouter.post('/',authenticate, (req: Request, res: Response) => { // test route
     res.json('Hello from reservations with authentication');
 });
 
