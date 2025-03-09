@@ -14,6 +14,7 @@ future updates (to keep track what I am going to implement on the site)
 
 - login front ✔️
 - server login + jwt
+- HTTP-only cookie token
 - mongo atlas as database  ✔️
 - improvements to visualize site (material ui loading components and alerts for user) ✔️
 - making reservations (✔️, partly)
@@ -21,6 +22,8 @@ future updates (to keep track what I am going to implement on the site)
 - Admin credentials to delete bookings or set "hotel" closed
 - demo video of the site and/or visitor credentials which can not be used to make real reservations but can be used to demo site
 - Front Page with images of "happy customers" ✔️
+- More detailed reservation
+- possible email notification to host
 
 
 what Will not be done

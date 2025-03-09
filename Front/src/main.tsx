@@ -6,12 +6,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ErrorPage from './Components/Error.tsx'
 import { Header } from './Components/Header.tsx'
 import Profile from "./Components/Profile.tsx"
-import ReservationsPage from './Components/Reservations.tsx'
+import ReservationsPage from './Components/reservationPage/Reservations.tsx'
 import CredentialsSignInPage from './Components/Login.tsx'
 import './i18n'
+import { AuthProvider } from './api/AuthProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <AuthProvider>  
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<><Header /><App /></>} />
@@ -21,5 +23,6 @@ createRoot(document.getElementById('root')!).render(
         <Route path="*" element={<><Header /><ErrorPage /></>}></Route>
       </Routes>
     </BrowserRouter>
+    </AuthProvider> 
   </StrictMode>,
 )

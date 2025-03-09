@@ -1,9 +1,9 @@
 import RangeCalendar from "./Calendar";
 import { ReservationsDiv } from "./ReservationsDiv";
-import { useDates } from "../hooks/useDates";
+import { useDates } from "../../hooks/useDates";
 import { ReservationInputs } from "./ReservationInputs";
 import { Paper } from "@mui/material";
-import "../styles/reservationPage.css";
+import "../../styles/reservationPage.css";
 
 
 const ReservationsPage: React.FC = () => {

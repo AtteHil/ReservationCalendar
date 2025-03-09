@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence} from 'framer-motion';
-import '../styles/reservationDiv.css';
-import { fetchReservation } from '../api/fetchReservation';
-import { CustomButton } from '../styles/customButton';
+import '../../styles/reservationDiv.css';
+import { fetchReservation } from '../../api/fetchReservation';
+import { CustomButton } from '../../styles/customButton';
 import UpdateIcon from '@mui/icons-material/Update';
 import { useTranslation } from 'react-i18next';
 import { format} from 'date-fns';

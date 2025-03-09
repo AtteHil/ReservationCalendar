@@ -1,10 +1,10 @@
 import { Box, FormControl,Alert, FormControlLabel, FormLabel, Radio, RadioGroup, Tooltip } from '@mui/material';
 import { format, isBefore } from 'date-fns';
-import { CustomTextField } from '../styles/customTextField';
-import { CustomButton } from '../styles/customButton';
+import { CustomTextField } from '../../styles/customTextField';
+import { CustomButton } from '../../styles/customButton';
 import { useTranslation } from 'react-i18next';
-import { makeReservation } from '../api/reservation';
-import '../styles/reservationInputs.css';
+import { makeReservation } from '../../api/reservation';
+import '../../styles/reservationInputs.css';
 import {  useEffect, useState } from 'react';
 
 

@@ -1,28 +1,32 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+
 const Profile = () => { // not implemented yet routes to log in because no token is found
-    const [token, setToken] = useState<string>("");
     const navigate = useNavigate();
     useEffect(() => {
-        try {
-            const localStorage = window.localStorage.getItem("token") as string;
-            if (localStorage) {
-                setToken(localStorage)
+        const fetchData = async () => {
+            const response = await fetch('http://localhost:3000/reservation/', {
+                method: 'GET',
+                credentials: 'include',
+            });
+            if (response.status === 401) {
+                navigate('/LogIn')
             }
-            else {
-                navigate("/LogIn")
+            if(response.status === 400){
+                console.log('Bad request')
             }
-
-        } catch (error) {
-
-        }
-    })
+            const data = await response.json();
+            console.log(data)
+        };
+        fetchData();
+    }, [])
+    
     return (
-        (token && <div>
+        <div>
             <h1>Profile Page</h1>
         </div>
         )
 
-    )
+    
 }
 export default Profile

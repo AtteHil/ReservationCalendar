@@ -1,19 +1,30 @@
 import express, { Router, Request, Response } from 'express';
 import {IUser, User} from '../models/user';
+import jwt, {JwtPayload} from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import bcrypt from 'bcryptjs';
+dotenv.config();
 const userRouter: Router = express.Router();
+
+interface UserRequestBody {
+    username: string;
+    password: string;
+  }
 
 userRouter.get('/', (req: Request, res: Response) => {
     res.json('Hello from user router');
 });
-userRouter.post('/register', (req: Request, res: Response) => { // to be added validation and hashing
+userRouter.post('/register', (req: Request<{}, {}, UserRequestBody>, res: Response) => { // to be added validation and hashing
     const {username, password} = req.body;
     if (!username || !password) {
         res.status(400).json('Please provide username and password');
     }
     try {
+        const hash : string = bcrypt.hashSync(password, 10);
+
         const user: IUser = new User({
         username: username,
-        password: password
+        password: hash
         });
         user.save()
         res.json({msg: "user created"})
@@ -22,18 +33,28 @@ userRouter.post('/register', (req: Request, res: Response) => { // to be added v
         res.status(500).json('Internal server error');
     }     
 })
-userRouter.post('/login', async (req: Request, res: Response) => {
+userRouter.post('/login', async (req: Request<{}, {}, UserRequestBody>, res: Response) => {
     const {username, password} = req.body;
     if (!username || !password) {
         res.status(400).json('Please provide username and password');
     }
+
+    
     try {
-        const user: IUser|null = await User.findOne({username: username, password: password});
+        const user: IUser|null = await User.findOne({username: username});
         if (!user) {
-            res.status(400).json('Invalid credentials');
+            res.status(400).json('No user found');
         }
         else{
-            res.json({msg: "user logged in"}) // to be added jwt sign and token return
+            const validPassword: boolean = bcrypt.compareSync(password, user.password);
+            if (!validPassword) {
+                res.status(400).json('Invalid password');
+            }else{
+                const token: string = jwt.sign({ id: user._id, username: user.username }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+                res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'strict' });
+                res.status(200).json({ message: 'User logged in successfully.', token });
+            }
+            
         }
         
     } catch (error) {
