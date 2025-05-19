@@ -25,7 +25,8 @@ reservationRouter.post('/makeReservation', authenticate ,async (req: Request, re
 })
 reservationRouter.get('/getReservations', async (req: Request, res: Response) => { 
     try {
-        const reservations: IReservation[] = await Reservation.find(); //add to return only future reservations
+        const currentDate: Date = new Date();
+        const reservations: IReservation[] = await Reservation.find({'days.1': {$gt:currentDate}}); //add to return only future reservations
         if (reservations.length == 0) {
             res.status(203).json({ error: 'No reservations' })
         }

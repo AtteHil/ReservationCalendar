@@ -33,8 +33,8 @@ userRouter.post('/register', (req: Request<{}, {}, UserRequestBody>, res: Respon
         res.status(500).json('Internal server error');
     }     
 })
-userRouter.post('/login', async (req: Request<{}, {}, UserRequestBody>, res: Response) => {
-    const {username, password} = req.body;
+userRouter.post('/login', async (req: Request<{}, {}, UserRequestBody>, res: Response) => { //Cookie “token” will soon be rejected because it is foreign and does not have the “Partitioned“ attribute. from browser warning
+    const {username, password} = req.body; // https://stackoverflow.com/questions/78497879/cookie-will-soon-be-rejected-because-it-is-foreign-and-does-not-have-the-partit
     if (!username || !password) {
         res.status(400).json('Please provide username and password');
     }

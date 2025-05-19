@@ -29,7 +29,12 @@ export const ReservationsDiv = () => {
         const fetchReservations = async () => {
             try {
                 const reservationData = await fetchReservation(signal);
-                setReservations(reservationData);
+                if(reservationData.length){
+                    setReservations(reservationData);
+                }else{
+                    setReservations(null);
+                }
+                
             } catch (error: unknown) {
                 if (error instanceof Error && error.name === "AbortError") {
                     console.log("Fetch aborted");
@@ -65,24 +70,27 @@ export const ReservationsDiv = () => {
                 <Atom color="#b31dcc" size="medium" text="" textColor="" />
             ) : (
                 <ul className="reservations-list">
-                    {reservations && reservations.length === 0 && <p>{t("No reservations")}</p>}
-                    <AnimatePresence>
-                        {reservations?.map((reservation) => (
-                            <motion.li
-                                key={reservation.days[0]}
-                                variants={itemVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="reservation-item"
-                            >
-                                <p>{t("Reservation for")}: {reservation.cats}</p>
-                                <p>{t("Starts")}: {format(new Date(reservation.days[0]), "dd-MM-yyyy")}</p>
-                                <p>{t("Ends")}: {format(new Date(reservation.days[1]), "dd-MM-yyyy")}</p>
-                                <p>{t("Food choice")}: {reservation.food}</p>
-                            </motion.li>
-                        ))}
-                    </AnimatePresence>
+                    {(!reservations || reservations.length === 0) ? (
+        <p>{t("No reservations")}</p>
+    ) : (
+        <AnimatePresence>
+            {reservations.map((reservation) => (
+                <motion.li
+                    key={reservation.days[0]}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="reservation-item"
+                >
+                    <p>{t("Reservation for")}: {reservation.cats}</p>
+                    <p>{t("Starts")}: {format(new Date(reservation.days[0]), "dd-MM-yyyy")}</p>
+                    <p>{t("Ends")}: {format(new Date(reservation.days[1]), "dd-MM-yyyy")}</p>
+                    <p>{t("Food choice")}: {reservation.food}</p>
+                </motion.li>
+            ))}
+        </AnimatePresence>
+    )}
                 </ul>
             )}
         </div>
